@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 def f(z):
     """calculates: z^2 + 0.279"""
-    return z**2 + 1.0j
+    return z**2 + 0.279
 
 
 x = np.linspace(-1.0, 1.0 , 500)
