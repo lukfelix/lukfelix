@@ -1,0 +1,31 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Feb 18 15:46:42 2020
+
+@author: 99luk
+"""
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+def f(z):
+    """calculates: z^2 + 0.279"""
+    return z**2 + 1.0j
+
+
+x = np.linspace(-1.0, 1.0 , 500)
+X, Y = np.meshgrid(x, x)
+Z, N= X + Y*1.0j, 0*X
+U = Z
+for i in range(0, 500):
+    for j in range(0, 500):
+        n = 0
+        while n<60 and np.abs(Z[i][j])<100:
+            Z[i][j] = f(Z[i][j])
+            n += 1
+        N[i][j] = n
+
+print(Z, N)
+plt.contourf(np.real(X), np.imag(Y*1.0j), np.log(N), 100)
+
+plt.show
